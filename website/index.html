@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f7;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #004d99;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00 !important;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #ffebcc;
+        }
+
+        .about-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #004d99;
+        }
+
+        .about-section img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #004d99;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-section img:hover {
+            transform: scale(1.1);
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #cce6ff;
+        }
+
+        .projects-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #004d99;
+        }
+
+        .projects-section .card {
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #e6f2ff;
+        }
+
+        .projects-section .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .projects-section .card-title {
+            color: #004d99;
+            font-weight: 600;
+        }
+
+        .projects-section .btn-primary {
+            background-color: #004d99;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .projects-section .btn-primary:hover {
+            background-color: #ffcc00;
+        }
+
+        .projects-section .btn-secondary {
+            background-color: #ffcc00;
+            border: none;
+            color: #004d99;
+            transition: background-color 0.3s ease;
+        }
+
+        .projects-section .btn-secondary:hover {
+            background-color: #ff9933;
+            color: white;
+        }
+
+        /* Ensure uniform image size */
+        .projects-section .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #ffe6cc;
+        }
+
+        .skills-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #004d99;
+        }
+
+        .skills-section .card {
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            background-color: #fff2e6;
+        }
+
+        .skills-section .card-title {
+            color: #004d99;
+            font-weight: 600;
+        }
+
+        /* Contact Me Section */
+        .contact-section {
+            background-color: #004d99;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #ffcc00;
+        }
+
+        .contact-section .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-section .contact-info div {
+            margin: 0 20px;
+            font-size: 1.3rem;
+        }
+
+        .contact-section .contact-info i {
+            margin-right: 10px;
+        }
+
+        .contact-section .social-icons a {
+            margin: 0 10px;
+            color: white;
+            background-color: #ffcc00;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .contact-section .social-icons a:hover {
+            background-color: #ff9933;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 767.98px) {
+            .contact-section .contact-info {
+                flex-direction: column;
+            }
+
+            .contact-section .contact-info div {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#about">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2>About</h2>
+            <img src="images/about/bhuvan.jpg" alt="Profile Picture">
+            <p>As a Data Science Master's student at the University of Colorado Boulder, I am passionate about applying
+                artificial intelligence and image processing to solve real-world problems. I have a strong background in
+                data analytics, having graduated from Vellore Institute of Technology with a BTech in Data Analytics in
+                2023.</p>
+            <p>I have gained hands-on experience in working on diverse and impactful projects in various domains, such
+                as supply chain management, human detection and tracking, and pandemic response.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="images/projects/1.jpg" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Text To Texture: Image Synthesis.</h5>
+                            <p class="card-text">Implemented AttnGAN to generate fashion images from text descriptions, capturing word-image semantics.</p>
+                            <a href="https://github.com/bhuvanendra1520/FashionAI" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="images/projects/2.jpg" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Diabetes severity prediction using ML.</h5>
+                            <p class="card-text">Used the CDC’s BRFSS survey data to predict diabetes risk based on health conditions, achieving ~72% accuracy with the XGBoost algorithm.</p>
+                            <a href="https://github.com/bhuvanendra1520/Diabetes-Severity-Prediction-System-Using-ML-Algorithms" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="images/projects/3.jpg" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Cotton plant disease prediction.</h5>
+                            <p class="card-text">Built a deep learning model using CNNs to classify diseases in cotton plants from images, enhancing early detection and crop management.</p>
+                            <a href="https://github.com/bhuvanendra1520/Cotton_plant_disease_prediction" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="images/projects/4.jpg" class="card-img-top" alt="Project 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Life expectancy analysis.</h5>
+                            <p class="card-text">Analyzed the impact of alcohol consumption and other factors on life expectancy, highlighting disparities between developed and developing countries.</p>
+                            <a href="https://github.com/bhuvanendra1520/Life-Expectancy-Analysis" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="images/projects/5.jpg" class="card-img-top" alt="Project 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Twitter Sentiment analysis.</h5>
+                            <p class="card-text">Used natural language processing techniques to classify and analyze public sentiments from tweets, gaining insights into opinions and trends across various topics.</p>
+                            <a href="https://github.com/bhuvanendra1520/Twitter_Sentiment_Analysis" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="images/projects/6.jpg" class="card-img-top" alt="Project 6">
+                        <div class="card-body">
+                            <h5 class="card-title">Students performance prediction.</h5>
+                            <p class="card-text">Developed a prediction model for math test scores based on demographic data and test preparation information.</p>
+                            <a href="https://github.com/bhuvanendra1520/Student_Performance_Prediction" class="btn btn-secondary">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Science</h5>
+                            <p class="card-text">Python, R, SQL, Pandas, NumPy, Scikit-learn, TensorFlow</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Machine Learning</h5>
+                            <p class="card-text">TensorFlow, Keras, PyTorch, OpenCV, Scikit-learn</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Visualization</h5>
+                            <p class="card-text">Tableau, Power BI, Matplotlib, Seaborn, Plotly</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Big Data</h5>
+                            <p class="card-text">Hadoop, Spark, Hive, Pig, Scala</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cloud Computing</h5>
+                            <p class="card-text">AWS, Google Cloud, Microsoft Azure</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Engineering</h5>
+                            <p class="card-text">ETL, Data Warehousing, Apache Kafka, Airflow</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i>putchalabhuvan@gmail.com</div>
+                <div><i class="fas fa-phone"></i> +1(720) 238 0253</div>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/bhuvanendra-putchala-0a0a18196/"><img src="icons/linkedin.png" alt="LinkedIn" title="LinkedIn"></a>
+                <a href="https://github.com/bhuvanendra1520"><img src="icons/github.png" alt="GitHub" title="GitHub"></a>
+                <a href="https://medium.com/@bhpu3467"><img src="icons/medium.png" alt="Medium" title="Medium"></a>
+                <!-- Resume Logo -->
+            <a href="https://drive.google.com/file/d/1Kr04NndQNiyXvyxO6mncAWh-h5mavO49/view?usp=sharing" target="_blank" class="resume-link">
+                <img src="icons/resume.png" alt="Resume" title="View Resume">
+            </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Bootstrap JS and FontAwesome -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>
