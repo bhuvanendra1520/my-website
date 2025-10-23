@@ -1,693 +1,556 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f4f7;
-            color: #333;
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: #004d99;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-nav .nav-link {
-            color: white !important;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #ffcc00 !important;
-        }
-
-        /* About Section */
-        .about-section {
-            padding: 80px 0;
-            text-align: center;
-            background-color: #ffebcc;
-        }
-
-        .about-section h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #004d99;
-        }
-
-        /* .about-section img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid #004d99;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        } */
-        .about-section img {
-    width: 150px; /* Set a fixed width */
-    height: 150px; /* Match the height to make it square */
-    border: 5px solid #004d99; /* Professional border */
-    margin-bottom: 20px; /* Space below the image */
-    transition: transform 0.3s ease; /* Add a hover effect */
-    border-radius: 5px; /* Slightly rounded corners for a polished look */
-        }
-
-
-        .about-section img:hover {
-            transform: scale(1.1);
-        }
-
-        .about-section p {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #444;
-        }
-
-        /* Projects Section */
-        .projects-section {
-            padding: 80px 0;
-            text-align: center;
-            background-color: #cce6ff;
-        }
-
-        .projects-section h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #004d99;
-        }
-
-        .projects-section .card {
-            margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            background-color: #e6f2ff;
-        }
-
-        .projects-section .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .projects-section .card-title {
-            color: #004d99;
-            font-weight: 600;
-        }
-
-        .projects-section .btn-primary {
-            background-color: #004d99;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .projects-section .btn-primary:hover {
-            background-color: #ffcc00;
-        }
-
-        .projects-section .btn-secondary {
-            background-color: #ffcc00;
-            border: none;
-            color: #004d99;
-            transition: background-color 0.3s ease;
-        }
-
-        .projects-section .btn-secondary:hover {
-            background-color: #ff9933;
-            color: white;
-        }
-
-        /* Ensure uniform image size */
-        .projects-section .card-img-top {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        /* Publications Section */
-        .publications-section {
-    background: linear-gradient(135deg, #e6f7ff, #f9f9f9); /* Subtle gradient */
-    padding: 60px 0;
-}
-
-        .publications-section h2 {
-            font-size: 2.5rem;
-            color: #004d99; /* Consistent title color */
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            background-color: #ffffff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100%;
-            padding: 20px 15px; /* Add padding for spacing */
-        }
-
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%; /* Ensure button aligns properly */
-            text-align: center;
-        }
-
-        .card-title {
-            font-size: 1.2rem;
-            color: #004d99;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .card-text {
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .card-img-top {
-            height: 200px;
-            object-fit: contain;
-            margin-bottom: 15px;
-            background-color: #f0f0f0;
-        }
-
-        .btn-secondary {
-    background-color: #ffcc00; /* Yellow background */
-    color: #004d99; /* Blue text */
-    font-weight: 600; /* Bold text */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding inside button */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-        }
-
-        .btn-secondary:hover {
-    background-color: #ff9933; /* Darker yellow on hover */
-    color: #ffffff; /* White text on hover */
-    transform: translateY(-3px); /* Slight lift effect */
-        }
-
-
-                
-
-
-        /* Certifications Section */
-        .certifications-section h2 {
-    font-size: 2.5rem; /* Slightly larger font size */
-    font-weight: 800; /* Extra bold text */
-    color: #004d99; /* Neutral dark color */
-    text-align: center; /* Center-align the title */
-    margin-bottom: 40px; /* Add space below the title */
-        }
-
-
-        .certifications-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .certification-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: #ffffff; /* White card background */
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .certification-item:hover {
-            transform: scale(1.02); /* Slight zoom effect on hover */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .certification-img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            margin-right: 20px;
-            border-radius: 5px;
-            background-color: #f0f0f0; /* Light gray background for images */
-            padding: 5px;
-        }
-
-        .certification-details {
-            flex: 1;
-        }
-
-        .certification-title {
-            font-size: 1.1rem;
-            color: #4a3f99; /* Professional lavender for title */
-            margin: 0 0 5px;
-            font-weight: 700; /* Bold titles */
-        }
-
-        .certification-meta {
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .certification-link {
-            font-size: 0.9rem;
-            color: #4a3f99; /* Match title color */
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .certification-link:hover {
-            color: #342d74; /* Darker lavender on hover */
-            text-decoration: underline;
-        }
-
-
-
-
-        /* Skills Section */
-
-        .skills-section {
-            padding: 80px 0;
-            text-align: center;
-            background-color: #ffe6cc; /* Light peach background */
-        }
-
-        .skills-section h2 {
-            font-size: 2.8rem; /* Large heading font size */
-            font-weight: 700; /* Bold heading */
-            margin-bottom: 30px;
-            color: #004d99; /* Dark blue color */
-        }
-
-        .skills-section .card {
-            border: none; /* Remove border */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
-            background-color: #fff2e6; /* Light cream card background */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect */
-            margin: 0 10px; /* Small gap between columns */
-        }
-
-        .skills-section .card:hover {
-            transform: translateY(-5px); /* Slight lift on hover */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-        }
-
-        .skills-section .card-title {
-            color: #004d99; /* Dark blue text color for titles */
-            font-weight: 600; /* Semi-bold text */
-        }
-
-        .skills-section .card p {
-            color: #555; /* Neutral gray text for descriptions */
-            font-size: 1rem;
-            margin: 0; /* Remove extra margin */
-        }
-
-        /* Add spacing between rows */
-        .skills-section .row {
-            row-gap: 30px; /* Space between rows */
-        }
-
-
-
-
-
-        /* Contact Me Section */
-        .contact-section {
-            background-color: #004d99;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #ffcc00;
-        }
-
-        .contact-section .contact-info {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .contact-section .contact-info div {
-            margin: 0 20px;
-            font-size: 1.3rem;
-        }
-
-        .contact-section .contact-info i {
-            margin-right: 10px;
-        }
-
-        .contact-section .social-icons a {
-            margin: 0 10px;
-            color: white;
-            background-color: #ffcc00;
-            padding: 10px;
-            border-radius: 50%;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .contact-section .social-icons img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .contact-section .social-icons a:hover {
-            background-color: #ff9933;
-            transform: translateY(-3px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 767.98px) {
-            .contact-section .contact-info {
-                flex-direction: column;
-            }
-
-            .contact-section .contact-info div {
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhuvanendra — Data Science Portfolio</title>
+
+  <!-- Fonts & Bootstrap -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Meta for clean shares -->
+  <meta name="description" content="Data Science & ML portfolio — projects, publications, certifications. GenAI, CV, MLOps.">
+  <meta property="og:title" content="Bhuvanendra — Data Science Portfolio">
+  <meta property="og:description" content="Projects, publications, certifications. GenAI, CV, MLOps.">
+  <meta property="og:image" content="images/about/9fee8fff-91f5-4ad2-82df-94e49e6f0cd8.jpeg">
+  <meta property="og:type" content="website">
+
+  <style>
+    /* ===============================
+       THEME — Soft Mid-tone (Option B)
+       =============================== */
+    :root{
+      --bg:#F2F4F8;            /* warm gray background */
+      --surface:#FAFBFF;       /* soft panel/cards */
+      --ink:#0F1224;           /* main text */
+      --muted:#5C6075;         /* secondary text */
+      --accent:#FF3EEC;        /* neon pink */
+      --accent-2:#3EC8FF;      /* cyan */
+      --outline:#DDE2EE;       /* light outline */
+      --shadow:0 8px 0 #D3D9E6, 0 24px 44px rgba(15,18,36,.08);
+      --radius:16px;
+
+      /* Micro-interaction tokens */
+      --glow-pink: rgba(255,62,236,.35);
+      --glow-cyan: rgba(62,200,255,.30);
+      --lift: -3px; /* set to 0px for glow-only */
+    }
+
+    html,body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto}
+
+    /* ===============================
+       NAV (no résumé button here)
+       =============================== */
+    .navbar{
+      background:#FFFFFFE6;
+      border-bottom:2px solid var(--outline);
+      backdrop-filter:saturate(1.1) blur(6px);
+    }
+    .navbar-brand{font-weight:800;letter-spacing:.3px}
+    .navbar-nav .nav-link{
+      color:#0F1224 !important;
+      border:2px solid transparent; border-radius:999px;
+      padding:.35rem .75rem; margin:.25rem;
+      transition:.2s ease;
+    }
+    .navbar-nav .nav-link:hover,.navbar-nav .nav-link:focus{
+      border-color:var(--outline);
+      outline:3px solid #0F1224; outline-offset:2px;
+    }
+
+    .btn-pill{
+      display:inline-flex;align-items:center;font-weight:800;border-radius:999px;padding:.6rem 1rem;
+      color:#0F1224;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      border:2px solid #0F1224; box-shadow:var(--shadow);
+      transition: transform .18s ease, box-shadow .25s ease, filter .25s ease;
+    }
+    .btn-outline{
+      display:inline-flex;align-items:center;font-weight:800;border-radius:12px;padding:.55rem .9rem;
+      color:#0F1224;background:#fff;border:2px solid #0F1224; box-shadow:0 6px 0 #0F1224;
+      transition: transform .18s ease, box-shadow .25s ease, filter .25s ease;
+    }
+
+    /* Hover glow utility */
+    .glow:hover{
+      transform: translateY(var(--lift));
+      box-shadow:
+        var(--shadow),
+        0 10px 26px var(--glow-cyan),
+        0 0 22px var(--glow-pink);
+      filter: saturate(1.02);
+    }
+
+    /* ===============================
+       HERO / ABOUT
+       =============================== */
+    .hero{
+      position:relative;overflow:hidden;
+      padding:84px 0 48px;
+      background:linear-gradient(180deg,#FAFBFF,#F2F4F8);
+      border-bottom:2px solid var(--outline);
+    }
+    .hero .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+    .hero h1{font-size:40px;line-height:1.15;margin:.3em 0 12px;font-weight:800}
+    .hero p.lead{color:#2B2F46;max-width:60ch}
+    .blob{
+      position:relative; border-radius:24px; background:var(--surface); padding:10px;
+      border:2px solid var(--outline); box-shadow:var(--shadow); isolation:isolate;
+    }
+    .blob::before{
+      content:""; position:absolute; inset:-25%; z-index:-1; filter:blur(24px); opacity:.55;
+      background:conic-gradient(from 0deg,var(--accent),var(--accent-2),#9DFF00,var(--accent));
+      animation:spin 22s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(1turn)}}
+
+    /* ===============================
+       SECTIONS
+       =============================== */
+    section{padding:80px 0}
+    .section-title{font-weight:800; font-size:32px; margin-bottom:14px}
+    .section-sub{color:var(--muted); margin-bottom:28px}
+
+    /* ===============================
+       CARDS (projects & publications)
+       =============================== */
+    .nb-card{
+      background:var(--surface); border:2px solid var(--outline); border-radius:var(--radius);
+      box-shadow:var(--shadow); transition:transform .2s ease, box-shadow .25s ease, filter .25s ease;
+      height:100%; display:flex; flex-direction:column;
+    }
+    .nb-card:hover{ transform:translateY(-4px) }
+    .nb-card.glow:hover{
+      transform: translateY(calc(var(--lift) - 1px));
+      box-shadow:
+        var(--shadow),
+        0 10px 26px var(--glow-cyan),
+        0 0 22px var(--glow-pink);
+      filter: saturate(1.02);
+    }
+    .nb-img{
+      border:2px solid var(--outline); border-radius:12px; width:100%; height:200px; object-fit:cover;
+      background:#EFF3FA;
+    }
+    .nb-title{font-weight:800; font-size:20px; margin:12px 0 6px}
+    .nb-tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px}
+    .nb-tag{font-size:12px; padding:6px 10px; border:2px solid var(--outline); border-radius:999px; color:#2B2F46}
+
+    .pub-card .nb-img{object-fit:contain}
+
+    /* ===============================
+       CERTIFICATIONS
+       =============================== */
+    .cert-item{
+      display:flex; align-items:center; gap:16px; padding:16px; margin-bottom:16px;
+      background:var(--surface); border:2px solid var(--outline); border-radius:14px; box-shadow:var(--shadow);
+      transition: transform .18s ease, box-shadow .25s ease, filter .25s ease;
+    }
+    .cert-item.glow:hover{
+      transform: translateY(var(--lift));
+      box-shadow:
+        var(--shadow),
+        0 10px 26px var(--glow-cyan),
+        0 0 22px var(--glow-pink);
+      filter: saturate(1.02);
+    }
+    .cert-img{width:60px;height:60px;object-fit:contain;border-radius:8px;background:#EFF3FA;border:2px solid var(--outline)}
+    .cert-title{margin:0;font-weight:800;color:#0F1224}
+    .cert-link{color:#0F1224;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;text-decoration:underline}
+
+    /* ===============================
+       SKILLS
+       =============================== */
+    .skill-card{
+      background:#FFFFFF; border:2px solid var(--outline); border-radius:14px; box-shadow:var(--shadow);
+      padding:18px; height:100%;
+      transition: transform .18s ease, box-shadow .25s ease, filter .25s ease;
+    }
+    .skill-card.glow:hover{
+      transform: translateY(var(--lift));
+      box-shadow:
+        var(--shadow),
+        0 10px 26px var(--glow-cyan),
+        0 0 22px var(--glow-pink);
+      filter: saturate(1.02);
+    }
+    .skill-card h5{font-weight:800}
+    .text-muted{color:var(--muted)!important}
+
+    /* ===============================
+       CONTACT
+       =============================== */
+    .contact{
+      background:#FAFBFF; color:var(--ink); border-top:2px solid var(--outline);
+    }
+    .social a{
+      display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      border:2px solid #0F1224; box-shadow:var(--shadow); margin:.25rem;
+      transition: transform .18s ease, box-shadow .25s ease, filter .25s ease;
+    }
+    .social a.glow:hover{
+      transform: translateY(var(--lift));
+      box-shadow:
+        var(--shadow),
+        0 10px 26px var(--glow-cyan),
+        0 0 22px var(--glow-pink);
+      filter: saturate(1.02);
+    }
+
+    /* ===============================
+       REVEALS & A11Y
+       =============================== */
+    .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease}
+    .reveal.in{opacity:1; transform:none}
+    .reveal[data-reveal="right"]{transform:translateX(18px)}
+    .reveal[data-reveal="left"]{transform:translateX(-18px)}
+    .reveal[data-reveal="right"].in,
+    .reveal[data-reveal="left"].in{transform:none}
+
+    .reveal-stagger > *{opacity:0; transform:translateY(12px); transition:opacity .45s ease, transform .45s ease}
+    .reveal-stagger.in > *{opacity:1; transform:none}
+    .reveal-stagger.in > *:nth-child(1){transition-delay:.02s}
+    .reveal-stagger.in > *:nth-child(2){transition-delay:.08s}
+    .reveal-stagger.in > *:nth-child(3){transition-delay:.14s}
+    .reveal-stagger.in > *:nth-child(4){transition-delay:.20s}
+    .reveal-stagger.in > *:nth-child(5){transition-delay:.26s}
+    .reveal-stagger.in > *:nth-child(6){transition-delay:.32s}
+
+    @media (prefers-reduced-motion: reduce){
+      .blob::before{animation:none}
+      .reveal, .reveal-stagger > *, .glow, .nb-card, .btn-outline, .btn-pill, .cert-item, .skill-card, .social a{transition:none !important}
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#about">My Portfolio</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+
+  <!-- NAV (no résumé here) -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#about" aria-label="Go to About">My Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto" role="menubar">
+          <li class="nav-item"><a class="nav-link" href="#about" role="menuitem">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects" role="menuitem">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications" role="menuitem">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications" role="menuitem">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills" role="menuitem">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" role="menuitem">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / ABOUT -->
+  <header id="about" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 mb-4 mb-lg-0">
+          <div class="kicker">Machine Learning • GenAI • CV • MLOps</div>
+          <h1>Hi, I’m <span style="text-decoration:underline">Bhuvanendra</span> — I build ML systems that ship.</h1>
+          <p class="lead">
+            Data Science Master's student at the University of Colorado Boulder. Passionate about applying AI and image processing to real-world problems across supply chain, human detection/tracking, and public health.
+          </p>
+          <div class="d-flex flex-wrap align-items-center mt-3">
+            <a class="btn-pill mr-2 mb-2 glow" href="#projects">See Projects</a>
+            <a class="btn-outline mb-2 glow" href="mailto:putchalabhuvan@gmail.com">Email Me</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="blob" aria-hidden="true">
+            <img src="images/about/9fee8fff-91f5-4ad2-82df-94e49e6f0cd8.jpeg"
+                 alt="Portrait of Bhuvanendra" style="display:block;border-radius:12px;border:2px solid var(--outline)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal" data-reveal="right">
+    <div class="container">
+      <h2 class="section-title">Signature Projects</h2>
+      <p class="section-sub">Clear outcomes, tech stack, and code links.</p>
+
+      <div class="row">
+        <!-- 1 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="nb-card h-100 p-3 glow">
+            <img src="images/projects/1.jpg" alt="Fashion images generated from text with AttnGAN"
+                 class="nb-img">
+            <h3 class="nb-title">Text To Texture: Image Synthesis</h3>
+            <div class="nb-tags">
+              <span class="nb-tag">AttnGAN</span><span class="nb-tag">PyTorch</span><span class="nb-tag">CV</span>
             </div>
-        </div>
-    </nav>
-
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <h2>About</h2>
-            <img src="images/about/9fee8fff-91f5-4ad2-82df-94e49e6f0cd8.jpeg" alt="Profile Picture">
-            <p>As a Data Science Master's student at the University of Colorado Boulder, I am passionate about applying
-                artificial intelligence and image processing to solve real-world problems. I have a strong background in
-                data analytics, having graduated from Vellore Institute of Technology with a BTech in Data Analytics in
-                2023.</p>
-            <p>I have gained hands-on experience in working on diverse and impactful projects in various domains, such
-                as supply chain management, human detection and tracking, and pandemic response.</p>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects-section" id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img src="images/projects/1.jpg" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Text To Texture: Image Synthesis.</h5>
-                            <p class="card-text">Implemented AttnGAN to generate fashion images from text descriptions, capturing word-image semantics.</p>
-                            <a href="https://github.com/bhuvanendra1520/FashionAI" class="btn btn-secondary">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img src="images/projects/2.jpg" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Diabetes severity prediction using ML.</h5>
-                            <p class="card-text">Used the CDC’s BRFSS survey data to predict diabetes risk based on health conditions, achieving ~72% accuracy with the XGBoost algorithm.</p>
-                            <a href="https://github.com/bhuvanendra1520/Diabetes-Severity-Prediction-System-Using-ML-Algorithms" class="btn btn-secondary">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img src="images/projects/3.jpg" class="card-img-top" alt="Project 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Cotton plant disease prediction.</h5>
-                            <p class="card-text">Built a deep learning model using CNNs to classify diseases in cotton plants from images, enhancing early detection and crop management.</p>
-                            <a href="https://github.com/bhuvanendra1520/Cotton_plant_disease_prediction" class="btn btn-secondary">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img src="images/projects/4.jpg" class="card-img-top" alt="Project 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Life expectancy analysis.</h5>
-                            <p class="card-text">Analyzed the impact of alcohol consumption and other factors on life expectancy, highlighting disparities between developed and developing countries.</p>
-                            <a href="https://github.com/bhuvanendra1520/Life-Expectancy-Analysis" class="btn btn-secondary">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img src="images/projects/5.jpg"  class="card-img-top" alt="Project 5">
-                        <div class="card-body">
-                            <h5 class="card-title">Twitter Sentiment analysis.</h5>
-                            <p class="card-text">Used natural language processing techniques to classify and analyze public sentiments from tweets, gaining insights into opinions and trends across various topics.</p>
-                            <a href="https://github.com/bhuvanendra1520/Twitter_Sentiment_Analysis" class="btn btn-secondary">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img src="images/projects/music.jpg" class="card-img-top" alt="Project 6">
-                        <div class="card-body">
-                            <h5 class="card-title">AI-Driven Music Caption Generation.</h5>
-                            <p class="card-text">Built an AI model that listens to music and generates descriptive captions using large language models. Combined audio feature extraction with natural language generation to create context-aware, human-like descriptions of songs.</p>
-                            <a href="https://github.com/bhuvanendra1520/AI-Driven-Music-Caption-Generation-Using-Large-Language-Models" class="btn btn-secondary">Source Code</a>
-                        </div>
-                    </div>
-                </div>
+            <p class="text-muted">Generated fashion images from text, capturing word–image semantics.</p>
+            <div class="mt-auto">
+              <a class="btn-outline glow" href="https://github.com/bhuvanendra1520/FashionAI">Source Code</a>
             </div>
+          </article>
         </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section class="publications-section" id="publications">
-        <div class="container">
-            <h2>Publications</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img src="images/publications/book_chapter.png" class="card-img-top" alt="Patent 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Big Data Analytics in Healthcare</h5>
-                            <p class="card-text">Explores big data analytics in healthcare, focusing on EHR, AI, and tools like Hadoop, with applications in real-time alerts, telemedicine, diagnostics, and pandemic response.</p>
-                            <a href="https://www.igi-global.com/chapter/applications-of-big-data-analytics-in-healthcare-informatics/314115" class="btn btn-secondary" target="_blank">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img src="images/publications/supplychain.png" class="card-img-top" alt="Patent 2">
-                        <div class="card-body">
-                            <h5 class="card-title">SYSTEM TO SECURE AND MANAGE A SUPPLY CHAIN USING BLOCKCHAIN</h5>
-                            <p class="card-text">A blockchain solution ensuring secure, transparent product management with distributed ledgers, transaction tracking, and customer verification via QR codes and digital displays.</p>
-                            <a href="https://drive.google.com/file/d/1XJWZkNvhgy6oKSsltBXRpvTKh09aql5o/view?usp=sharing" class="btn btn-secondary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img src="images/publications/EEG.png" class="card-img-top" alt="Patent 3">
-                        <div class="card-body">
-                            <h5 class="card-title">EEG-Based Financial Transaction System</h5>
-                            <p class="card-text">A patented system utilizing EEG signals for secure user authentication, offering advanced biometric security and seamless integration of neurotechnology in financial transactions.</p>
-                            <a href="https://drive.google.com/file/d/1iqfIyDTInSawE9AOOKeaCeC8AWbtqssj/view?usp=sharing" class="btn btn-secondary">View Details</a>
-                        </div>
-                    </div>
-                </div>
+        <!-- 2 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="nb-card h-100 p-3 glow">
+            <img src="images/projects/2.jpg" alt="Dashboard for diabetes risk prediction" class="nb-img">
+            <h3 class="nb-title">Diabetes Severity Prediction</h3>
+            <div class="nb-tags">
+              <span class="nb-tag">XGBoost</span><span class="nb-tag">Python</span><span class="nb-tag">BRFSS</span>
             </div>
-        </div>
-    </section>
-    
-    <!-- Certifications Section -->
-    <section class="certifications-section" id="certifications">
-        <div class="container">
-            <h2 class="text-center">Certifications</h2>
-            <ul class="certifications-list">
-                <!-- Certification 1 -->
-                <li class="certification-item">
-                    <img src="images/certifications/AWS_ML.png" alt="AWS Certified Machine Learning Engineer" class="certification-img">
-                    <div class="certification-details">
-                        <h5 class="certification-title">AWS Certified Machine Learning Engineer – Associate</h5>
-                        <p><strong>Issued By:</strong> Amazon Web Services (AWS) | <strong>Issued:</strong> January 2025</p>
-                        <a href="https://www.credly.com/badges/ca7494fd-22ac-4fdd-b421-12a373fda08d/public_url" target="_blank" class="certification-link">View Credential</a>
-                    </div>
-                </li>
-                <!-- Certification 2 -->
-                <li class="certification-item">
-                    <img src="images/certifications/AWS_Dataengineer.png" alt="AWS Certified Data Engineer" class="certification-img">
-                    <div class="certification-details">
-                        <h5 class="certification-title">AWS Certified Data Engineer – Associate</h5>
-                        <p><strong>Issued By:</strong> Amazon Web Services (AWS) | <strong>Issued:</strong> December 2024</p>
-                        <a href="https://www.credly.com/badges/850bcde0-6cb1-40ba-a933-231f2661d9b2/linked_in_profile" target="_blank" class="certification-link">View Credential</a>
-                    </div>
-                </li>
-
-                <!-- Certification 3 -->
-                <li class="certification-item">
-                    <img src="images/certifications/Azure_Data.png" alt="Azure Data Fundamentals" class="certification-img">
-                    <div class="certification-details">
-                        <h5 class="certification-title">Azure Data Fundamentals</h5>
-                        <p><strong>Issued By:</strong> Microsoft | <strong>Issued:</strong> October 2022</p>
-                        <a href="https://www.credly.com/badges/63127adb-5ed7-4b6e-b51a-c91eefb4ea10/linked_in_profile" target="_blank" class="certification-link">View Credential</a>
-                    </div>
-                </li>
-    
-                <!-- Certification 4 -->
-                <li class="certification-item">
-                    <img src="images/certifications/Azure_fundamentals.png" alt="Azure Fundamentals" class="certification-img">
-                    <div class="certification-details">
-                        <h5 class="certification-title">Azure Fundamentals</h5>
-                        <p><strong>Issued By:</strong> Microsoft | <strong>Issued:</strong> July 2022</p>
-                        <a href="https://www.credly.com/badges/54ca1938-1764-40c9-8cf7-9f92e6ec66d2?source=linked_in_profile" target="_blank" class="certification-link">View Credential</a>
-                    </div>
-                </li>
-                
-                <!-- Certification 5 -->
-                <li class="certification-item">
-                    <img src="images/certifications/tableau.png" alt="Get Started with Tableau" class="certification-img">
-                    <div class="certification-details">
-                        <h5 class="certification-title">Get Started with Tableau </h5>
-                        <p><strong>Issued By:</strong> Tableau | <strong>Issued:</strong> July 2022</p>
-                        <a href="https://www.credly.com/badges/9c78df32-1327-43e7-8d8c-a4efcf7537a6?source=linked_in_profile" target="_blank" class="certification-link">View Credential</a>
-                    </div>
-                </li>
-
-                <!-- Certification 6 -->
-                <li class="certification-item">
-                    <img src="images/certifications/google.png" alt="Google Data Analytics" class="certification-img">
-                    <div class="certification-details">
-                        <h5 class="certification-title">Google Data Analytics</h5>
-                        <p><strong>Issued By:</strong> Coursera | <strong>Issued:</strong> May 2021</p>
-                        <a href="https://www.coursera.org/account/accomplishments/professional-cert/C6WX6U4YS2UQ" target="_blank" class="certification-link">View Credential</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-    
-
-    <!-- Skills Section -->
-    <section class="skills-section" id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Data Science</h5>
-                            <p class="card-text">Python, R, SQL, Pandas, NumPy, Scikit-learn, TensorFlow</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Machine Learning</h5>
-                            <p class="card-text">TensorFlow, Keras, PyTorch, OpenCV, Scikit-learn</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Data Visualization</h5>
-                            <p class="card-text">Tableau, Power BI, Matplotlib, Seaborn, Plotly</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Big Data</h5>
-                            <p class="card-text">Hadoop, Spark, Hive, Pig, Scala</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Cloud Computing</h5>
-                            <p class="card-text">AWS, Google Cloud, Microsoft Azure</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Data Engineering</h5>
-                            <p class="card-text">ETL, Data Warehousing, Apache Kafka, Airflow</p>
-                        </div>
-                    </div>
-                </div>
+            <p class="text-muted">Predicted diabetes risk from CDC BRFSS; ~72% accuracy with XGBoost.</p>
+            <div class="mt-auto">
+              <a class="btn-outline glow" href="https://github.com/bhuvanendra1520/Diabetes-Severity-Prediction-System-Using-ML-Algorithms">Source Code</a>
             </div>
+          </article>
         </div>
-    </section>
-
-    <!-- Contact Me Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-info">
-                <div><i class="fas fa-envelope"></i>putchalabhuvan@gmail.com</div>
-                <div><i class="fas fa-phone"></i> +1(720) 238 0253</div>
+        <!-- 3 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="nb-card h-100 p-3 glow">
+            <img src="images/projects/3.jpg" alt="Cotton plant disease classifier interface" class="nb-img">
+            <h3 class="nb-title">Cotton Plant Disease Prediction</h3>
+            <div class="nb-tags">
+              <span class="nb-tag">CNN</span><span class="nb-tag">Deep Learning</span><span class="nb-tag">AgriTech</span>
             </div>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/bhuvanendra-putchala/"><img src="icons/linkedin.png" alt="LinkedIn" title="LinkedIn"></a>
-                <a href="https://github.com/bhuvanendra1520"><img src="icons/github.png" alt="GitHub" title="GitHub"></a>
-                <a href="https://medium.com/@putchalabhuvan"><img src="icons/medium.png" alt="Medium" title="Medium"></a>
-                <!-- Resume Logo -->
-            <a href="https://drive.google.com/file/d/1Kr04NndQNiyXvy-h5mavO49/view?usp=sharing" target="_blank" class="resume-link">
-                <img src="icons/resume.png" alt="Resume" title="View Resume">
-            </a>
+            <p class="text-muted">CNN model to classify diseases from images for early detection.</p>
+            <div class="mt-auto">
+              <a class="btn-outline glow" href="https://github.com/bhuvanendra1520/Cotton_plant_disease_prediction">Source Code</a>
             </div>
+          </article>
         </div>
-    </section>
+        <!-- 4 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="nb-card h-100 p-3 glow">
+            <img src="images/projects/4.jpg" alt="Life expectancy analysis charts" class="nb-img">
+            <h3 class="nb-title">Life Expectancy Analysis</h3>
+            <div class="nb-tags">
+              <span class="nb-tag">EDA</span><span class="nb-tag">Visualization</span>
+            </div>
+            <p class="text-muted">Analyzed impact of alcohol and other factors; highlighted global disparities.</p>
+            <div class="mt-auto">
+              <a class="btn-outline glow" href="https://github.com/bhuvanendra1520/Life-Expectancy-Analysis">Source Code</a>
+            </div>
+          </article>
+        </div>
+        <!-- 5 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="nb-card h-100 p-3 glow">
+            <img src="images/projects/5.jpg" alt="Twitter sentiment analysis dashboard" class="nb-img">
+            <h3 class="nb-title">Twitter Sentiment Analysis</h3>
+            <div class="nb-tags">
+              <span class="nb-tag">NLP</span><span class="nb-tag">Classification</span>
+            </div>
+            <p class="text-muted">Classified public sentiment from tweets to reveal topic trends.</p>
+            <div class="mt-auto">
+              <a class="btn-outline glow" href="https://github.com/bhuvanendra1520/Twitter_Sentiment_Analysis">Source Code</a>
+            </div>
+          </article>
+        </div>
+        <!-- 6 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="nb-card h-100 p-3 glow">
+            <img src="images/projects/music.jpg" alt="Music caption generation UI" class="nb-img">
+            <h3 class="nb-title">AI-Driven Music Caption Generation</h3>
+            <div class="nb-tags">
+              <span class="nb-tag">Audio</span><span class="nb-tag">LLM</span>
+            </div>
+            <p class="text-muted">Combined audio features + LLM to generate human-like song captions.</p>
+            <div class="mt-auto">
+              <a class="btn-outline glow" href="https://github.com/bhuvanendra1520/AI-Driven-Music-Caption-Generation-Using-Large-Language-Models">Source Code</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Include Bootstrap JS and FontAwesome -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="reveal reveal-stagger" data-reveal="left">
+    <div class="container">
+      <h2 class="section-title">Publications & IP</h2>
+      <p class="section-sub">Selected work with quick access to details.</p>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="nb-card pub-card h-100 p-3 text-center glow">
+            <img src="images/publications/book_chapter.png" class="nb-img" alt="Big Data Analytics in Healthcare cover">
+            <h3 class="nb-title">Big Data Analytics in Healthcare</h3>
+            <p class="text-muted">EHR, AI, Hadoop; real-time alerts, telemedicine, diagnostics, pandemic response.</p>
+            <a href="https://www.igi-global.com/chapter/applications-of-big-data-analytics-in-healthcare-informatics/314115" class="btn-outline glow" target="_blank" rel="noopener">View Details</a>
+          </article>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="nb-card pub-card h-100 p-3 text-center glow">
+            <img src="images/publications/supplychain.png" class="nb-img" alt="Blockchain supply chain patent schematic">
+            <h3 class="nb-title">Secure Supply Chain via Blockchain</h3>
+            <p class="text-muted">Distributed ledgers, transaction tracking, customer verification via QR codes.</p>
+            <a href="https://drive.google.com/file/d/1XJWZkNvhgy6oKSsltBXRpvTKh09aql5o/view?usp=sharing" class="btn-outline glow" target="_blank" rel="noopener">View Details</a>
+          </article>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="nb-card pub-card h-100 p-3 text-center glow">
+            <img src="images/publications/EEG.png" class="nb-img" alt="EEG-based financial transaction system diagram">
+            <h3 class="nb-title">EEG-Based Transaction System</h3>
+            <p class="text-muted">Biometric security with EEG signals for financial authentication.</p>
+            <a href="https://drive.google.com/file/d/1iqfIyDTInSawE9AOOKeaCeC8AWbtqssj/view?usp=sharing" class="btn-outline glow" target="_blank" rel="noopener">View Details</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="reveal reveal-stagger">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+      <ul class="list-unstyled">
+        <li class="cert-item glow">
+          <img src="images/certifications/AWS_ML.png" alt="AWS Certified Machine Learning Engineer badge" class="cert-img">
+          <div>
+            <h5 class="cert-title">AWS Certified Machine Learning Engineer – Associate</h5>
+            <p class="mb-1"><strong>Issued By:</strong> AWS &nbsp;|&nbsp; <strong>Issued:</strong> January 2025</p>
+            <a class="cert-link" href="https://www.credly.com/badges/ca7494fd-22ac-4fdd-b421-12a373fda08d/public_url" target="_blank" rel="noopener">View Credential</a>
+          </div>
+        </li>
+        <li class="cert-item glow">
+          <img src="images/certifications/AWS_Dataengineer.png" alt="AWS Certified Data Engineer badge" class="cert-img">
+          <div>
+            <h5 class="cert-title">AWS Certified Data Engineer – Associate</h5>
+            <p class="mb-1"><strong>Issued By:</strong> AWS &nbsp;|&nbsp; <strong>Issued:</strong> December 2024</p>
+            <a class="cert-link" href="https://www.credly.com/badges/850bcde0-6cb1-40ba-a933-231f2661d9b2/linked_in_profile" target="_blank" rel="noopener">View Credential</a>
+          </div>
+        </li>
+        <li class="cert-item glow">
+          <img src="images/certifications/Azure_Data.png" alt="Azure Data Fundamentals badge" class="cert-img">
+          <div>
+            <h5 class="cert-title">Azure Data Fundamentals</h5>
+            <p class="mb-1"><strong>Issued By:</strong> Microsoft &nbsp;|&nbsp; <strong>Issued:</strong> October 2022</p>
+            <a class="cert-link" href="https://www.credly.com/badges/63127adb-5ed7-4b6e-b51a-c91eefb4ea10/linked_in_profile" target="_blank" rel="noopener">View Credential</a>
+          </div>
+        </li>
+        <li class="cert-item glow">
+          <img src="images/certifications/Azure_fundamentals.png" alt="Azure Fundamentals badge" class="cert-img">
+          <div>
+            <h5 class="cert-title">Azure Fundamentals</h5>
+            <p class="mb-1"><strong>Issued By:</strong> Microsoft &nbsp;|&nbsp; <strong>Issued:</strong> July 2022</p>
+            <a class="cert-link" href="https://www.credly.com/badges/54ca1938-1764-40c9-8cf7-9f92e6ec66d2?source=linked_in_profile" target="_blank" rel="noopener">View Credential</a>
+          </div>
+        </li>
+        <li class="cert-item glow">
+          <img src="images/certifications/tableau.png" alt="Tableau badge" class="cert-img">
+          <div>
+            <h5 class="cert-title">Get Started with Tableau</h5>
+            <p class="mb-1"><strong>Issued By:</strong> Tableau &nbsp;|&nbsp; <strong>Issued:</strong> July 2022</p>
+            <a class="cert-link" href="https://www.credly.com/badges/9c78df32-1327-43e7-8d8c-a4efcf7537a6?source=linked_in_profile" target="_blank" rel="noopener">View Credential</a>
+          </div>
+        </li>
+        <li class="cert-item glow">
+          <img src="images/certifications/google.png" alt="Google Data Analytics badge" class="cert-img">
+          <div>
+            <h5 class="cert-title">Google Data Analytics</h5>
+            <p class="mb-1"><strong>Issued By:</strong> Coursera &nbsp;|&nbsp; <strong>Issued:</strong> May 2021</p>
+            <a class="cert-link" href="https://www.coursera.org/account/accomplishments/professional-cert/C6WX6U4YS2UQ" target="_blank" rel="noopener">View Credential</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="reveal reveal-stagger">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4"><div class="skill-card h-100 glow">
+          <h5>Data Science</h5><p class="text-muted mb-0">Python, R, SQL, Pandas, NumPy, Scikit-learn, TensorFlow</p>
+        </div></div>
+        <div class="col-lg-4 col-md-6 mb-4"><div class="skill-card h-100 glow">
+          <h5>Machine Learning</h5><p class="text-muted mb-0">TensorFlow, Keras, PyTorch, OpenCV, Scikit-learn</p>
+        </div></div>
+        <div class="col-lg-4 col-md-6 mb-4"><div class="skill-card h-100 glow">
+          <h5>Data Visualization</h5><p class="text-muted mb-0">Tableau, Power BI, Matplotlib, Seaborn, Plotly</p>
+        </div></div>
+        <div class="col-lg-4 col-md-6 mb-4"><div class="skill-card h-100 glow">
+          <h5>Big Data</h5><p class="text-muted mb-0">Hadoop, Spark, Hive, Pig, Scala</p>
+        </div></div>
+        <div class="col-lg-4 col-md-6 mb-4"><div class="skill-card h-100 glow">
+          <h5>Cloud Computing</h5><p class="text-muted mb-0">AWS, Google Cloud, Microsoft Azure</p>
+        </div></div>
+        <div class="col-lg-4 col-md-6 mb-4"><div class="skill-card h-100 glow">
+          <h5>Data Engineering</h5><p class="text-muted mb-0">ETL, Data Warehousing, Apache Kafka, Airflow</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container py-5">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="d-flex flex-wrap align-items-center mb-3">
+        <button class="btn-outline mr-2 mb-2 glow" onclick="location.href='mailto:putchalabhuvan@gmail.com'">Email Me</button>
+      </div>
+      <p class="mb-3"><strong>Email:</strong> putchalabhuvan@gmail.com &nbsp;|&nbsp; <strong>Phone:</strong> +1 (720) 238 0253</p>
+
+      <!-- Social & small contact buttons (includes Résumé icon button) -->
+      <div class="social" aria-label="Social links">
+        <a class="glow" href="https://www.linkedin.com/in/bhuvanendra-putchala/" aria-label="LinkedIn">
+          <img src="icons/linkedin.png" alt="" width="22" height="22">
+        </a>
+        <a class="glow" href="https://github.com/bhuvanendra1520" aria-label="GitHub">
+          <img src="icons/github.png" alt="" width="22" height="22">
+        </a>
+        <a class="glow" href="https://medium.com/@putchalabhuvan" aria-label="Medium">
+          <img src="icons/medium.png" alt="" width="22" height="22">
+        </a>
+        <!-- Résumé as a small contact icon button -->
+        <a class="glow" href="https://drive.google.com/file/d/1Kr04NndQNiyXvy-h5mavO49/view?usp=sharing" target="_blank" rel="noopener" aria-label="Résumé">
+          <img src="icons/resume.png" alt="" width="22" height="22">
+        </a>
+      </div>
+
+      <p class="mt-4 text-muted">© <span id="year"></span> Bhuvanendra</p>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Reveal on scroll with support for .reveal, .reveal-stagger and data-reveal direction
+    (function(){
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced) {
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => el.classList.add('in'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries)=>{
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold:.18 });
+
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+    })();
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
